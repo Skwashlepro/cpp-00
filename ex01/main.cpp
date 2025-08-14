@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 19:59:52 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/13 18:49:15 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/14 12:05:46 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(void)
 	phoneBook.print_instructions();
 	while (1)
 	{
+		input.clear();
 		std::cout << ">> ";
 		std::getline(std::cin, input);
 		if (!input.compare("ADD"))
@@ -30,7 +31,6 @@ int	main(void)
 			std::cout << "Exiting ..." << std::endl;
 			std::exit(0);
 		}
-		input.clear();
 		phoneBook.print_instructions();
 	}
 	return (0);

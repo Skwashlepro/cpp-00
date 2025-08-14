@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 19:31:06 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/13 19:11:51 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/14 12:14:10 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	PhoneBook::set_info()
 
 	std::cout << "Creating contact no." << this->_index + 1 << std::endl;
 	if (!this->contacts[_index].set_contact())
-		std::cout << "back to the main menu" << std::endl;
+		std::cout << "back to the main menu." << std::endl;
+	else
+		this->_index++;
 }
 
 void	PhoneBook::get_info()
