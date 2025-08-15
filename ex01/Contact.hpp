@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 20:01:04 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/13 19:09:13 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/15 15:05:26 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Contact{
 		~Contact();
 
 		bool	set_contact();
-		void	get_contact(int index)const;
+		void	get_contact();
 };
 
 #endif

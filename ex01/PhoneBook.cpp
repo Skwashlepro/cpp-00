@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 19:31:06 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/14 12:14:10 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/15 15:10:14 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,22 @@ void	PhoneBook::get_info()
 		std::cout << "Please add at least one contact to your PhoneBook" << std::endl;
 		return ;
 	}
-
 	while (true) {
+		std::cout << "Contact's index to display : ";
 		std::getline(std::cin, input);
-		if (!std::cin || std::cin.eof()) {
-			std::cin.clear();
-			continue ;
+		bool isNumeric = true;
+		for (std::string::size_type i = 0; i < input.length(); i++)
+			if (!isdigit(input[i]))
+				isNumeric = false;
+		if (isNumeric == false || input.length() == 0)
+			std::cout << "Please only choose between 1 and " << this->_index << std::endl;
+		int index = std::stoi(input);
+		if (index > this->_index) {
+			std::cout << "Please only choose between 1 and " << this->_index << std::endl;
+			continue;
 		}
-		break ;
-	}
-	bool isNumeric = true;
-	for (std::string::size_type i = 0; i < input.length(); i++) {
-		if (!isdigit(input[i]))
-			isNumeric = false;
-	}
-	if (isNumeric == false){
-		std::cout << "Please only choose between 1 and " << this->_index + 1 << std::endl;
-		return;
+		this->contacts[index - 1].get_contact();
+		break;
 	}
 }
 void	PhoneBook::print_instructions()

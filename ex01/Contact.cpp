@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 20:04:55 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/14 12:13:03 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/15 15:09:31 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,13 @@ Contact::Contact()
 
 Contact::~Contact() {}
 
-void	Contact::get_contact(int index) const
+void	Contact::get_contact()
 {
+	std::cout << std::endl;
+	for (int i = 0; i <= DarkestSecret; i++) {
+		std::cout << this->_fields[i] << " : " << this->_info[i] << "\n";
+	}
+	std::cout << std::endl;
 }
 
 bool	Contact::set_contact()
