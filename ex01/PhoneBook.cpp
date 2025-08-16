@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 19:31:06 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/15 15:10:14 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/16 12:16:44 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,30 @@ void	PhoneBook::set_info()
 {
 	std::string input;
 
-	std::cout << "Creating contact no." << this->_index + 1 << std::endl;
-	if (!this->contacts[_index].set_contact())
-		std::cout << "back to the main menu." << std::endl;
-	else
+	if (this->_index >= 8)
+		this->_full = true;
+	int	idx = this->_index % 8;
+	if (!this->_full) {
+		std::cout << "Creating contact no." << this->_index + 1 << std::endl;
+		this->contacts[idx].set_contact();
 		this->_index++;
+	}
+	else {
+		std::cout << "Creating a new contact will erase the oldest one you've created." << std::endl;
+		std::cout << "Confirm ? Y/y" << std::endl;
+		std::getline(std::cin, input);
+		if (input == "Y" || input == "y") {
+			this->contacts[idx].set_contact();
+			this->_index++;
+		}
+		else
+			std::cout << "back to the main menu." << std::endl;
+	}
+}
+
+void	PhoneBook::print_tab()
+{
+	std::cout << "|" ;
 }
 
 void	PhoneBook::get_info()
@@ -43,18 +62,20 @@ void	PhoneBook::get_info()
 		for (std::string::size_type i = 0; i < input.length(); i++)
 			if (!isdigit(input[i]))
 				isNumeric = false;
-		if (isNumeric == false || input.length() == 0)
-			std::cout << "Please only choose between 1 and " << this->_index << std::endl;
-		int index = std::stoi(input);
-		if (index > this->_index) {
+		if (isNumeric == false || input.length() == 0) {
 			std::cout << "Please only choose between 1 and " << this->_index << std::endl;
 			continue;
 		}
+		int index = std::stoi(input);
+		if (index == 0)
+			return ;
+		if ((index > this->_index || index > 8) && !this->_full) {
+			std::cout << "Please only choose between 1 and " << this->_index << std::endl;
+			continue;
+		}
+		else if (index > 8 && this->_full)
+			std::cout << "Please only choose between 1 and " << 8 << std::endl;
 		this->contacts[index - 1].get_contact();
 		break;
 	}
-}
-void	PhoneBook::print_instructions()
-{
-	std::cout << "Commands: ADD, SEARCH, EXIT" << std::endl;
 }

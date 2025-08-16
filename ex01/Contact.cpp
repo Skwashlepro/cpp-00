@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 20:04:55 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/15 15:09:31 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/16 11:55:49 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,11 @@ bool	Contact::set_contact()
 			std::cout << "Please enter the contact's " << _fields[i] << std::endl;
 			std::cout << ">> ";
 			std::getline(std::cin, this->_info[i]);
-			if (!this->_info[i].compare("!quit"))
-				return (false);
-			else if (!std::cin && std::cin.eof()) {
+			if (!std::cin && std::cin.eof()) {
 				return (true);
 			}
 			if (this->_info[i].length() == 0) {
 				std::cout << _fields[i] << " cannot be empty" << std::endl;
-				std::cout << "to cancel enter '!quit'" << std::endl;
 				continue ;
 			}
 			break ;
