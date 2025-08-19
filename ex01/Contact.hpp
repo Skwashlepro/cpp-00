@@ -6,13 +6,12 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 20:01:04 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/19 02:05:34 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/19 02:38:59 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-
-# define CONTACT_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <string>
 # include <iomanip>
