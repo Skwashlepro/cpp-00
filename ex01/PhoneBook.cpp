@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 19:31:06 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/19 02:19:10 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/19 02:33:13 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ bool	PhoneBook::get_info()
 		std::cout << std::endl;
 	}
 	while (true) {
-		std::cout << "Contact's index to display : ";
+		std::cout << "Contact's index to display : " << std::endl;
 		std::getline(std::cin, input);
 		bool isNumeric = true;
 		for (std::string::size_type i = 0; i < input.length(); i++)

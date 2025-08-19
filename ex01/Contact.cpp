@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 20:04:55 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/19 02:12:49 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/19 02:33:38 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ bool	Contact::set_contact() {
 	for (int i = 0; i <= DarkestSecret; i++) {
 		while (1) {
 			std::cout << "Please enter the contact's " << _fields[i] << std::endl;
-			std::cout << ">> ";
 			std::getline(std::cin, this->_info[i]);
 			if (!std::cin && std::cin.eof()) {
 				return (true);
