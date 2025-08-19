@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 20:01:04 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/15 15:05:26 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/19 02:05:34 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ class Contact{
 		Contact();
 		~Contact();
 
-		bool	set_contact();
-		void	get_contact();
+		bool		set_contact();
+		void		get_contact();
+		void		PrintTab(int index) const;
+		std::string	formatTab(const std::string &str) const;
 };
 
 #endif

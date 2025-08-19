@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 19:31:02 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/15 15:18:18 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/19 02:18:46 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ class PhoneBook {
 		PhoneBook();
 		~PhoneBook();
 		void	set_info();
-		void	get_info();
+		bool	get_info();
 		void	print_tab();
+		std::string	formatTab(const std::string &str) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 19:59:52 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/15 15:18:34 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/19 02:21:34 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,17 @@ int	main(void)
 		std::cout << "Commands: ADD, SEARCH, EXIT" << std::endl;
 		std::cout << ">> ";
 		std::getline(std::cin, input);
+		if (std::cin.eof() || !input.compare("EXIT")) {
+			std::cout << "\nExiting ..." << std::endl;
+			std::exit(0);
+		}
 		if (!input.compare("ADD"))
 		phoneBook.set_info();
 		else if (!input.compare("SEARCH"))
-		phoneBook.get_info();
-		else if (std::cin.eof() || !input.compare("EXIT")) {
-			std::cout << "Exiting ..." << std::endl;
-			std::exit(0);
-		}
+			if (!phoneBook.get_info()) {
+				std::cout << "\nExiting ..." << std::endl;
+				std::exit(0);
+			}
 		input.clear();
 	}
 	return (0);

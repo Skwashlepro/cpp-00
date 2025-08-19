@@ -6,7 +6,7 @@
 /*   By: luctan <luctan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 19:31:06 by luctan            #+#    #+#             */
-/*   Updated: 2025/08/16 12:16:44 by luctan           ###   ########.fr       */
+/*   Updated: 2025/08/19 02:19:10 by luctan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ void	PhoneBook::set_info()
 	}
 }
 
-void	PhoneBook::print_tab()
-{
-	std::cout << "|" ;
-}
-
-void	PhoneBook::get_info()
+bool	PhoneBook::get_info()
 {
 	int	index;
 	std::string input;
 
 	if (this->_index == 0) {
 		std::cout << "Please add at least one contact to your PhoneBook" << std::endl;
-		return ;
+		return (true);
+	}
+	else {
+		for (int i = 0; i < _index && i < 8; i++)
+			contacts[i].PrintTab(i + 1);
+		std::cout << std::endl;
 	}
 	while (true) {
 		std::cout << "Contact's index to display : ";
@@ -62,13 +62,15 @@ void	PhoneBook::get_info()
 		for (std::string::size_type i = 0; i < input.length(); i++)
 			if (!isdigit(input[i]))
 				isNumeric = false;
-		if (isNumeric == false || input.length() == 0) {
+		if (std::cin.eof())
+			return (false);
+		if (isNumeric == false || input.length() == 0 || input.length() > 1) {
 			std::cout << "Please only choose between 1 and " << this->_index << std::endl;
 			continue;
 		}
 		int index = std::stoi(input);
 		if (index == 0)
-			return ;
+			return (true);
 		if ((index > this->_index || index > 8) && !this->_full) {
 			std::cout << "Please only choose between 1 and " << this->_index << std::endl;
 			continue;
@@ -78,4 +80,5 @@ void	PhoneBook::get_info()
 		this->contacts[index - 1].get_contact();
 		break;
 	}
+	return (true);
 }
